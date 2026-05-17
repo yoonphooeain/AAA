@@ -6,15 +6,14 @@ This project is a thesis-style website for:
 
 ## Deploy Online
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yoonphooeain/AAA)
-
 This repository is configured for deployment on Render.
 
+- Service name: `aaa-banking-thesis`
 - Build command: `pip install -r requirements.txt`
 - Start command: `gunicorn app:app`
 - Python version: `3.11.11`
 
-Note:
+Deployment note:
 - The project uses SQLite at `data/banking_research.db`.
 - Survey responses can work online, but SQLite on a cloud web service is best for demos and small-scale use.
 - Data may reset when the instance is rebuilt or restarted unless you later move to a persistent database.

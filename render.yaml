@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: aaa
+    name: aaa-banking-thesis
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
