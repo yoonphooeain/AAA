@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero compact report-hero">
+  <p class="eyebrow">{{ tr('printable_report') }}</p>
+  <h1>{{ tr('analysis_report') }}</h1>
+  <p class="hero-text narrow">{{ tr('report_intro') }}</p>
+  <figure class="detail-visual report-visual">
+    <img src="https://images.pexels.com/photos/8154798/pexels-photo-8154798.jpeg?cs=srgb&dl=pexels-cedric-fauntleroy-8154798.jpg&fm=jpg" alt="Thesis report photo" loading="lazy" referrerpolicy="no-referrer">
+    <figcaption>This report condenses thesis findings into a print-friendly summary using a realistic presentation-style visual.</figcaption>
+  </figure>
+</section>
+
+<section class="section-block print-controls">
+  <div class="filter-pill-row">
+    <span class="chip">{{ tr('filter_label') }}: {{ filter_summary }}</span>
+    <button class="button button-primary print-only-hide" onclick="window.print()">{{ tr('print_save_pdf') }}</button>
+  </div>
+</section>
+
+<section class="section-block report-grid">
+  <article class="text-panel">
+    <h2>{{ tr('summary') }}</h2>
+    <p>{{ tr('total_responses') }}: <strong>{{ analysis.total_responses }}</strong></p>
+    <p>{{ tr('overall_mean') }}: <strong>{{ analysis.overall_mean }} / 5</strong></p>
+    <p>{{ tr('top_factor') }}: <strong>{{ analysis.top_factor.label if analysis.top_factor else "-" }}</strong></p>
+    <p>{{ tr('weakest_factor') }}: <strong>{{ analysis.weakest_factor.label if analysis.weakest_factor else "-" }}</strong></p>
+  </article>
+
+  <article class="text-panel">
+    <h2>{{ tr('interpretation_snapshot') }}</h2>
+    <ul class="clean-list">
+      {% for item in analysis.insights %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">{{ tr('factor_means') }}</p>
+    <h2>{{ tr('service_quality_summary') }}</h2>
+  </div>
+  <div class="stack-list">
+    {% for factor in analysis.factors %}
+    <article class="text-panel report-row">
+      <div>
+        <h3>{{ factor.label }}</h3>
+        <p>Mean score: {{ factor.mean }} / 5</p>
+      </div>
+      <div class="report-bar-track">
+        <div class="report-bar-fill" style="width: {{ factor.percent }}%"></div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block report-grid">
+  <article class="text-panel">
+    <h2>{{ tr('bank_distribution') }}</h2>
+    <ul class="clean-list">
+      {% for item in analysis.bank_distribution %}
+      <li>{{ item.label }}: {{ item.value }} respondents</li>
+      {% endfor %}
+    </ul>
+  </article>
+  <article class="text-panel">
+    <h2>{{ tr('satisfaction_levels') }}</h2>
+    <ul class="clean-list">
+      {% for item in analysis.satisfaction_levels %}
+      <li>{{ item.label }}: {{ item.value }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+
+{% if analysis.recent_comments %}
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">{{ tr('recent_comments') }}</p>
+    <h2>{{ tr('selected_comments') }}</h2>
+  </div>
+  <div class="stack-list">
+    {% for item in analysis.recent_comments %}
+    <article class="text-panel">
+      <h3>{{ item.name }} - {{ item.bank }}</h3>
+      <p>{{ item.comment }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

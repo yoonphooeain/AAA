@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <div class="hero-orb hero-orb-one"></div>
+    <div class="hero-orb hero-orb-two"></div>
+    <p class="eyebrow">{{ tr('hero_eyebrow') }}</p>
+    <h1>A Web-Based Customer Satisfaction Analysis System for Banking Services</h1>
+    <p class="hero-text">{{ tr('hero_intro') }}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="{{ url_lang('survey') }}">{{ tr('start_survey') }}</a>
+      <a class="button button-secondary" href="{{ url_lang('dashboard') }}">{{ tr('view_analysis') }}</a>
+    </div>
+    <div class="hero-ribbon">
+      <article>
+        <span>Banking Research</span>
+        <strong>Modern thesis showcase with live data collection</strong>
+      </article>
+      <article>
+        <span>System Focus</span>
+        <strong>Survey, comparison analysis, dashboard, and report in one flow</strong>
+      </article>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="hero-visual">
+      <img src="https://images.pexels.com/photos/7947999/pexels-photo-7947999.jpeg?cs=srgb&dl=pexels-rdne-7947999.jpg&fm=jpg" alt="Banking dashboard photo" loading="eager" referrerpolicy="no-referrer">
+      <div class="hero-visual-badge">
+        <span>01</span>
+        <strong>Smart Research View</strong>
+        <p>Survey, charts, and report flow in one elegant interface.</p>
+      </div>
+    </div>
+    <div class="panel-card spotlight">
+      <p class="eyebrow">{{ tr('study_focus') }}</p>
+      <h2>{{ tr('research_product') }}</h2>
+      <p>Customer satisfaction in banking services using SERVQUAL, Expectation Confirmation Theory, and quantitative analysis.</p>
+    </div>
+    <div class="panel-grid">
+      {% for item in home.highlights %}
+      <article class="stat-card">
+        <span>{{ item.label }}</span>
+        <strong>{{ item.value }}</strong>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="mini-insight">
+      <span>{{ tr('current_top_factor') }}</span>
+      <strong>{{ home.analysis_snapshot.top_factor.label if home.analysis_snapshot.top_factor else tr('no_data_yet') }}</strong>
+      <p>{{ tr('dashboard_auto_updates') }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">{{ tr('website_modules') }}</p>
+    <h2>{{ tr('what_system_includes') }}</h2>
+  </div>
+  <div class="card-grid three-up">
+    {% for card in home.feature_cards[:3] %}
+    <article class="info-card feature-card">
+      <span class="feature-index">0{{ loop.index }}</span>
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.body }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block split-band">
+  <div class="section-heading">
+    <p class="eyebrow">{{ tr('research_architecture') }}</p>
+    <h2>Clean Thesis Flow, One Premium Interface</h2>
+  </div>
+  <div class="split-grid">
+    <article class="text-panel emphasis-panel">
+      <h3>{{ tr('academic_flow') }}</h3>
+      <p>The homepage now focuses on the core value of the project: one banking research website that explains the study, collects survey responses, and turns results into supervisor-ready analysis.</p>
+      <div class="chip-row">
+        <span class="chip">Background</span>
+        <span class="chip">Theory</span>
+        <span class="chip">Methodology</span>
+        <span class="chip">Survey</span>
+        <span class="chip">Dashboard</span>
+      </div>
+    </article>
+    <article class="text-panel emphasis-panel">
+      <h3>Start With The Strongest Pages</h3>
+      <p>For a clean presentation, open only the pages that best tell the thesis story first, then move into details when needed.</p>
+      <ul class="clean-list">
+        <li><a href="{{ url_lang('theory') }}">Theory</a> and <a href="{{ url_lang('methodology') }}">Methodology</a> for academic grounding</li>
+        <li><a href="{{ url_lang('survey') }}">Survey</a> for live data collection</li>
+        <li><a href="{{ url_lang('dashboard') }}">Dashboard</a> and <a href="{{ url_lang('report') }}">Report</a> for final interpretation</li>
+      </ul>
+    </article>
+  </div>
+</section>
+{% endblock %}

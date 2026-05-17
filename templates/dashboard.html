@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero compact">
+  <p class="eyebrow">{{ tr('analysis_dashboard') }}</p>
+  <h1>{{ tr('customer_satisfaction_analysis') }}</h1>
+  <p class="hero-text narrow">{{ tr('dashboard_intro') }}</p>
+</section>
+
+<section class="section-block">
+  <div class="detail-hero-card">
+    <div class="detail-summary">
+      <div>
+        <p class="eyebrow">{{ tr('analysis_dashboard') }}</p>
+        <h2>A dashboard-style interpretation space for filtered data review, chart comparison, and thesis discussion support.</h2>
+      </div>
+      <figure class="detail-visual">
+        <img src="https://images.pexels.com/photos/7947999/pexels-photo-7947999.jpeg?cs=srgb&dl=pexels-rdne-7947999.jpg&fm=jpg" alt="Dashboard insights photo" loading="lazy" referrerpolicy="no-referrer">
+        <figcaption>This realistic analytics scene supports the thesis analysis stage where survey data becomes charts, summaries, and supervisor-ready findings.</figcaption>
+      </figure>
+    </div>
+    <div class="detail-metrics">
+      <article class="micro-stat">
+        <span class="stat-icon">◌ Live filters</span>
+        <strong>Bank / Gender / Usage</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">◆ Chart review</span>
+        <strong>Chart.js visuals</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">△ Export tools</span>
+        <strong>CSV + PDF report</strong>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div id="dashboard-root" class="dashboard-root">
+    <section class="dashboard-panel filter-panel">
+      <div class="panel-heading">
+        <h2>{{ tr('filter_dataset') }}</h2>
+        <p>{{ tr('review_patterns') }}</p>
+      </div>
+      <div class="filter-grid">
+        {% for field, label in filter_fields.items() %}
+        <label>
+          <span>{{ label }}</span>
+          <select data-filter="{{ field }}" class="dashboard-filter">
+            <option value="">{{ tr('all') }} {{ label }}</option>
+          </select>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="filter-actions">
+        <button id="apply-filters" class="button button-primary" type="button">{{ tr('apply_filters') }}</button>
+        <button id="reset-filters" class="button button-secondary" type="button">{{ tr('reset') }}</button>
+      </div>
+      <div class="export-actions">
+        <a id="csv-export" class="button button-secondary" href="{{ url_lang('export_csv') }}">{{ tr('export_csv') }}</a>
+        <a id="pdf-export" class="button button-secondary" href="{{ url_lang('report') }}" target="_blank" rel="noopener">{{ tr('open_pdf_report') }}</a>
+      </div>
+    </section>
+
+    <div class="summary-grid" id="summary-grid"></div>
+
+    <section class="dashboard-panel insight-panel">
+      <div class="panel-heading">
+        <h2>{{ tr('interpretation_snapshot') }}</h2>
+        <p>{{ tr('discussion_statements') }}</p>
+      </div>
+      <div id="insight-list" class="insight-list"></div>
+    </section>
+
+    <section class="dashboard-panel">
+      <div class="panel-heading">
+        <h2>{{ tr('comparison_analysis') }}</h2>
+        <p>{{ tr('comparison_intro') }}</p>
+      </div>
+      <div class="comparison-grid">
+        <article class="comparison-card">
+          <h3>{{ tr('bank_comparison') }}</h3>
+          <div id="bank-comparison" class="bar-list small"></div>
+        </article>
+        <article class="comparison-card">
+          <h3>{{ tr('gender_comparison') }}</h3>
+          <div id="gender-comparison" class="bar-list small"></div>
+        </article>
+        <article class="comparison-card">
+          <h3>{{ tr('usage_comparison') }}</h3>
+          <div id="usage-comparison" class="bar-list small"></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="dashboard-panels">
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>{{ tr('service_factor_means') }}</h2>
+          <p>{{ tr('avg_score_chartjs') }}</p>
+        </div>
+        <div class="chart-shell tall-chart">
+          <canvas id="factor-chart"></canvas>
+        </div>
+        <div id="factor-bars" class="bar-list"></div>
+      </section>
+
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>{{ tr('bank_distribution') }}</h2>
+          <p>{{ tr('respondent_count_by_bank') }}</p>
+        </div>
+        <div class="chart-shell">
+          <canvas id="bank-chart"></canvas>
+        </div>
+        <div id="bank-list" class="bar-list small"></div>
+      </section>
+    </div>
+
+    <div class="dashboard-panels">
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>{{ tr('satisfaction_levels') }}</h2>
+          <p>{{ tr('distribution_overall') }}</p>
+        </div>
+        <div class="chart-shell doughnut-shell">
+          <canvas id="level-chart"></canvas>
+        </div>
+        <div id="level-list" class="pill-list"></div>
+      </section>
+
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>{{ tr('recent_comments') }}</h2>
+          <p>{{ tr('latest_observations') }}</p>
+        </div>
+        <div id="comment-list" class="comment-list"></div>
+      </section>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

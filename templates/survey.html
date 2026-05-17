@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero compact">
+  <p class="eyebrow">{{ tr('data_collection') }}</p>
+  <h1>{{ tr('survey_form_title') }}</h1>
+  <p class="hero-text narrow">{{ tr('survey_form_intro') }}</p>
+</section>
+
+<section class="section-block">
+  <div class="detail-hero-card">
+    <div class="detail-summary">
+      <div>
+      <p class="eyebrow">{{ tr('survey_snapshot') }}</p>
+      <h2>The form is aligned with the thesis method and can be used immediately for respondent collection.</h2>
+      </div>
+      <figure class="detail-visual">
+        <img src="https://images.pexels.com/photos/8154798/pexels-photo-8154798.jpeg?cs=srgb&dl=pexels-cedric-fauntleroy-8154798.jpg&fm=jpg" alt="Survey fieldwork photo" loading="lazy" referrerpolicy="no-referrer">
+        <figcaption>A realistic respondent-collection scene with presentation, note-taking, and formal survey activity.</figcaption>
+      </figure>
+    </div>
+    <div class="detail-metrics">
+      <article class="micro-stat">
+        <span class="stat-icon">◌ {{ tr('current_responses') }}</span>
+        <strong>{{ survey_meta.total_responses }}</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">◆ {{ tr('measured_factors') }}</span>
+        <strong>{{ survey_meta.factor_count }}</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">△ {{ tr('available_banks') }}</span>
+        <strong>{{ survey_meta.banks|length }}</strong>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="form-layout">
+    <form id="survey-form" class="survey-form" novalidate>
+      <div class="survey-progress">
+        <div class="progress-copy">
+          <strong>{{ tr('form_progress') }}</strong>
+          <span id="progress-text">0 of 11 required fields completed</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="survey-section-title">
+        <p class="eyebrow">{{ tr('section_1') }}</p>
+        <h2>{{ tr('respondent_profile') }}</h2>
+      </div>
+      <div class="form-group two-col">
+        <label>
+          <span>{{ tr('full_name_optional') }}</span>
+          <input type="text" name="full_name" placeholder="{{ tr('enter_name') }}" maxlength="80">
+        </label>
+        <label>
+          <span>{{ tr('age') }}</span>
+          <input type="number" name="age" min="15" max="100" placeholder="{{ tr('enter_age') }}">
+        </label>
+      </div>
+
+      <div id="form-errors" class="field-error-list" hidden></div>
+
+      <div class="form-group three-col">
+        <label>
+          <span>{{ tr('gender') }}</span>
+          <select name="gender" required>
+            <option value="">{{ tr('select') }}</option>
+            <option>{{ tr('male') }}</option>
+            <option>{{ tr('female') }}</option>
+            <option>{{ tr('other') }}</option>
+          </select>
+        </label>
+        <label>
+          <span>{{ tr('bank_name') }}</span>
+          <select name="bank_name" required>
+            <option value="">{{ tr('select') }}</option>
+            <option>KBZ Bank</option>
+            <option>AYA Bank</option>
+            <option>CB Bank</option>
+            <option>UAB Bank</option>
+            <option>Other Bank</option>
+          </select>
+        </label>
+        <label>
+          <span>{{ tr('usage_frequency') }}</span>
+          <select name="usage_frequency" required>
+            <option value="">{{ tr('select') }}</option>
+            <option>{{ tr('daily') }}</option>
+            <option>{{ tr('weekly') }}</option>
+            <option>{{ tr('monthly') }}</option>
+            <option>{{ tr('occasionally') }}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="survey-section-title">
+        <p class="eyebrow">{{ tr('section_2') }}</p>
+        <h2>{{ tr('service_quality_ratings') }}</h2>
+      </div>
+      <div class="likert-guide">
+        <span>1 = Strongly Disagree</span>
+        <span>2 = Disagree</span>
+        <span>3 = Neutral</span>
+        <span>4 = Agree</span>
+        <span>5 = Strongly Agree</span>
+      </div>
+      <div class="rating-grid">
+        {% for field, label in [
+          ('tangibles', 'Tangibles: branch appearance and facilities'),
+          ('reliability', 'Reliability: accurate and dependable service'),
+          ('responsiveness', 'Responsiveness: quick and helpful service'),
+          ('assurance', 'Assurance: confidence and trust in staff'),
+          ('empathy', 'Empathy: care and attention to customer needs'),
+          ('security', 'Security: safety of transactions and information'),
+          ('digital_convenience', 'Digital Convenience: mobile and online banking ease'),
+          ('overall_satisfaction', 'Overall Satisfaction with banking services')
+        ] %}
+        <label class="rating-field">
+          <span>{{ label }}</span>
+          <select name="{{ field }}" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        {% endfor %}
+      </div>
+
+      <label class="full-width">
+        <span>{{ tr('additional_comment') }}</span>
+        <textarea name="comment" rows="4" maxlength="300" placeholder="{{ tr('comment_placeholder') }}"></textarea>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" class="button button-primary">{{ tr('submit_survey') }}</button>
+        <a class="button button-secondary" href="{{ url_lang('dashboard') }}">{{ tr('go_to_dashboard') }}</a>
+      </div>
+      <p id="form-status" class="form-status"></p>
+    </form>
+
+    <aside class="side-note">
+      <h2>{{ tr('method_reminder') }}</h2>
+      <ul>
+        <li>Research Design: Quantitative</li>
+        <li>Data Collection: Questionnaire Survey</li>
+        <li>Measurement Scale: 5-point Likert Scale</li>
+        <li>Analysis: Frequency, Mean, and Comparison</li>
+      </ul>
+      <div class="note-card">
+        <strong>{{ tr('best_practice') }}</strong>
+        <p>Ask respondents to answer all rating items based on one bank they use most often. This keeps the data more consistent for analysis.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/survey.js') }}"></script>
+{% endblock %}

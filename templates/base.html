@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ tr('site_title') }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-lang="{{ current_lang }}" data-route="{{ request.endpoint or 'page' }}">
+  <header class="site-header">
+    <div class="brand-block">
+      <p class="eyebrow">{{ tr('brand_eyebrow') }}</p>
+      <a class="brand" href="{{ url_lang('index') }}">
+        <span class="brand-mark"></span>
+        <span>{{ tr('brand_name') }}</span>
+      </a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-actions">
+      <nav class="site-nav">
+        <a href="{{ url_lang('index') }}" class="{% if request.endpoint == 'index' %}is-active{% endif %}">{{ tr('nav_home') }}</a>
+
+        <div class="nav-dropdown {% if request.endpoint in ['about', 'theory', 'methodology'] %}is-open{% endif %}">
+          <button type="button" class="nav-trigger {% if request.endpoint in ['about', 'theory', 'methodology'] %}is-active{% endif %}" aria-expanded="{% if request.endpoint in ['about', 'theory', 'methodology'] %}true{% else %}false{% endif %}">
+            {{ tr('nav_study') }}
+          </button>
+          <div class="nav-menu">
+            <a href="{{ url_lang('about') }}" class="nav-subitem {% if request.endpoint == 'about' %}is-current{% endif %}">{{ tr('nav_about') }}</a>
+            <a href="{{ url_lang('theory') }}" class="nav-subitem {% if request.endpoint == 'theory' %}is-current{% endif %}">{{ tr('nav_theory') }}</a>
+            <a href="{{ url_lang('methodology') }}" class="nav-subitem {% if request.endpoint == 'methodology' %}is-current{% endif %}">{{ tr('nav_methodology') }}</a>
+          </div>
+        </div>
+
+        <a href="{{ url_lang('survey') }}" class="{% if request.endpoint == 'survey' %}is-active{% endif %}">{{ tr('nav_survey') }}</a>
+
+        <div class="nav-dropdown {% if request.endpoint in ['dashboard', 'results', 'recommendations'] %}is-open{% endif %}">
+          <button type="button" class="nav-trigger {% if request.endpoint in ['dashboard', 'results', 'recommendations'] %}is-active{% endif %}" aria-expanded="{% if request.endpoint in ['dashboard', 'results', 'recommendations'] %}true{% else %}false{% endif %}">
+            {{ tr('nav_analysis') }}
+          </button>
+          <div class="nav-menu">
+            <a href="{{ url_lang('dashboard') }}" class="nav-subitem {% if request.endpoint == 'dashboard' %}is-current{% endif %}">{{ tr('nav_dashboard') }}</a>
+            <a href="{{ url_lang('results') }}" class="nav-subitem {% if request.endpoint == 'results' %}is-current{% endif %}">{{ tr('nav_results') }}</a>
+            <a href="{{ url_lang('recommendations') }}" class="nav-subitem {% if request.endpoint == 'recommendations' %}is-current{% endif %}">{{ tr('nav_recommendations') }}</a>
+          </div>
+        </div>
+
+        <a href="{{ url_lang('report') }}" class="{% if request.endpoint == 'report' %}is-active{% endif %}">{{ tr('nav_report') }}</a>
+        </nav>
+      </div>
+    </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>{{ tr('footer_title') }}</p>
+    <p>{{ tr('footer_subtitle') }}</p>
+  </footer>
+
+  <script>
+    window.APP_LANG = "{{ current_lang }}";
+    window.APP_TEXT = {{ ui_text|tojson }};
+  </script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
