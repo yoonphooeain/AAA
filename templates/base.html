@@ -68,6 +68,8 @@
   <script>
     window.APP_LANG = "{{ current_lang }}";
     window.APP_TEXT = {{ ui_text|tojson }};
+    window.APP_STATIC = {{ app_static|tojson }};
+    window.APP_BASE_PATH = {{ app_base_path|tojson }};
   </script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   {% block scripts %}{% endblock %}

@@ -1,0 +1,205 @@
+{
+  "total_responses": 12,
+  "overall_mean": 4,
+  "factors": [
+    {
+      "field": "security",
+      "label": "Security",
+      "mean": 4.42,
+      "percent": 88.3
+    },
+    {
+      "field": "overall_satisfaction",
+      "label": "Overall Satisfaction",
+      "mean": 4,
+      "percent": 80.0
+    },
+    {
+      "field": "reliability",
+      "label": "Reliability",
+      "mean": 3.92,
+      "percent": 78.3
+    },
+    {
+      "field": "assurance",
+      "label": "Assurance",
+      "mean": 3.92,
+      "percent": 78.3
+    },
+    {
+      "field": "tangibles",
+      "label": "Tangibles",
+      "mean": 3.75,
+      "percent": 75.0
+    },
+    {
+      "field": "empathy",
+      "label": "Empathy",
+      "mean": 3.75,
+      "percent": 75.0
+    },
+    {
+      "field": "responsiveness",
+      "label": "Responsiveness",
+      "mean": 3.67,
+      "percent": 73.3
+    },
+    {
+      "field": "digital_convenience",
+      "label": "Digital Convenience",
+      "mean": 3.67,
+      "percent": 73.3
+    }
+  ],
+  "bank_distribution": [
+    {
+      "label": "AYA Bank",
+      "value": 3
+    },
+    {
+      "label": "CB Bank",
+      "value": 3
+    },
+    {
+      "label": "KBZ Bank",
+      "value": 4
+    },
+    {
+      "label": "UAB Bank",
+      "value": 2
+    }
+  ],
+  "satisfaction_levels": [
+    {
+      "label": "High (4-5)",
+      "value": 8
+    },
+    {
+      "label": "Moderate (3)",
+      "value": 4
+    },
+    {
+      "label": "Low (1-2)",
+      "value": 0
+    }
+  ],
+  "recent_comments": [
+    {
+      "name": "Hnin Pwint",
+      "bank": "KBZ Bank",
+      "comment": "I trust the service a lot."
+    },
+    {
+      "name": "Ye Yint",
+      "bank": "CB Bank",
+      "comment": "Queue is too long sometimes."
+    },
+    {
+      "name": "Ei Ei",
+      "bank": "UAB Bank",
+      "comment": "Service is dependable."
+    },
+    {
+      "name": "Htet Aung",
+      "bank": "AYA Bank",
+      "comment": "Online banking can improve."
+    }
+  ],
+  "top_factor": {
+    "field": "security",
+    "label": "Security",
+    "mean": 4.42,
+    "percent": 88.3
+  },
+  "weakest_factor": {
+    "field": "digital_convenience",
+    "label": "Digital Convenience",
+    "mean": 3.67,
+    "percent": 73.3
+  },
+  "insights": [
+    "The strongest rated area is Security with a mean score of 4.42.",
+    "The weakest rated area is Digital Convenience with a mean score of 3.67.",
+    "The current filtered sample reports an overall satisfaction mean of 4 out of 5."
+  ],
+  "comparisons": {
+    "banks": [
+      {
+        "label": "AYA Bank",
+        "mean": 3.67,
+        "count": 3,
+        "percent": 73.3
+      },
+      {
+        "label": "CB Bank",
+        "mean": 4,
+        "count": 3,
+        "percent": 80.0
+      },
+      {
+        "label": "KBZ Bank",
+        "mean": 4.25,
+        "count": 4,
+        "percent": 85.0
+      },
+      {
+        "label": "UAB Bank",
+        "mean": 4,
+        "count": 2,
+        "percent": 80.0
+      }
+    ],
+    "genders": [
+      {
+        "label": "Female",
+        "mean": 4.57,
+        "count": 7,
+        "percent": 91.4
+      },
+      {
+        "label": "Male",
+        "mean": 3.2,
+        "count": 5,
+        "percent": 64.0
+      }
+    ],
+    "usage": [
+      {
+        "label": "Daily",
+        "mean": 5,
+        "count": 2,
+        "percent": 100.0
+      },
+      {
+        "label": "Monthly",
+        "mean": 3.25,
+        "count": 4,
+        "percent": 65.0
+      },
+      {
+        "label": "Weekly",
+        "mean": 4.17,
+        "count": 6,
+        "percent": 83.3
+      }
+    ]
+  },
+  "filters": {},
+  "available_filters": {
+    "bank_name": [
+      "AYA Bank",
+      "CB Bank",
+      "KBZ Bank",
+      "UAB Bank"
+    ],
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "usage_frequency": [
+      "Daily",
+      "Monthly",
+      "Weekly"
+    ]
+  }
+}

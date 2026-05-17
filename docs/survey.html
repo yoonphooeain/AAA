@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banking Satisfaction Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body data-lang="en" data-route="survey">
+  <header class="site-header">
+    <div class="brand-block">
+      <p class="eyebrow">Thesis Website</p>
+      <a class="brand" href="index.html">
+        <span class="brand-mark"></span>
+        <span>Banking Satisfaction Analysis System</span>
+      </a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-actions">
+      <nav class="site-nav">
+        <a href="index.html" class="">Home</a>
+
+        <div class="nav-dropdown ">
+          <button type="button" class="nav-trigger " aria-expanded="false">
+            Study
+          </button>
+          <div class="nav-menu">
+            <a href="about.html" class="nav-subitem ">About</a>
+            <a href="theory.html" class="nav-subitem ">Theory</a>
+            <a href="methodology.html" class="nav-subitem ">Methodology</a>
+          </div>
+        </div>
+
+        <a href="survey.html" class="is-active">Survey</a>
+
+        <div class="nav-dropdown ">
+          <button type="button" class="nav-trigger " aria-expanded="false">
+            Analysis
+          </button>
+          <div class="nav-menu">
+            <a href="dashboard.html" class="nav-subitem ">Dashboard</a>
+            <a href="results.html" class="nav-subitem ">Results</a>
+            <a href="recommendations.html" class="nav-subitem ">Recommendations</a>
+          </div>
+        </div>
+
+        <a href="report.html" class="">Report</a>
+        </nav>
+      </div>
+    </header>
+
+  <main>
+    
+<section class="page-hero compact">
+  <p class="eyebrow">Data Collection</p>
+  <h1>Customer Satisfaction Survey Form</h1>
+  <p class="hero-text narrow">Use this form to collect quantitative responses from bank customers. All rating fields use a 1 to 5 scale.</p>
+</section>
+
+<section class="section-block">
+  <div class="detail-hero-card">
+    <div class="detail-summary">
+      <div>
+      <p class="eyebrow">Survey Snapshot</p>
+      <h2>The form is aligned with the thesis method and can be used immediately for respondent collection.</h2>
+      </div>
+      <figure class="detail-visual">
+        <img src="https://images.pexels.com/photos/8154798/pexels-photo-8154798.jpeg?cs=srgb&dl=pexels-cedric-fauntleroy-8154798.jpg&fm=jpg" alt="Survey fieldwork photo" loading="lazy" referrerpolicy="no-referrer">
+        <figcaption>A realistic respondent-collection scene with presentation, note-taking, and formal survey activity.</figcaption>
+      </figure>
+    </div>
+    <div class="detail-metrics">
+      <article class="micro-stat">
+        <span class="stat-icon">◌ Current Responses</span>
+        <strong>12</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">◆ Measured Factors</span>
+        <strong>8</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">△ Available Banks</span>
+        <strong>4</strong>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="form-layout">
+    <form id="survey-form" class="survey-form" novalidate>
+      <div class="survey-progress">
+        <div class="progress-copy">
+          <strong>Form Progress</strong>
+          <span id="progress-text">0 of 11 required fields completed</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="survey-section-title">
+        <p class="eyebrow">Section 1</p>
+        <h2>Respondent Profile</h2>
+      </div>
+      <div class="form-group two-col">
+        <label>
+          <span>Full Name (Optional)</span>
+          <input type="text" name="full_name" placeholder="Enter name" maxlength="80">
+        </label>
+        <label>
+          <span>Age</span>
+          <input type="number" name="age" min="15" max="100" placeholder="Enter age">
+        </label>
+      </div>
+
+      <div id="form-errors" class="field-error-list" hidden></div>
+
+      <div class="form-group three-col">
+        <label>
+          <span>Gender</span>
+          <select name="gender" required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>
+          <span>Bank Name</span>
+          <select name="bank_name" required>
+            <option value="">Select</option>
+            <option>KBZ Bank</option>
+            <option>AYA Bank</option>
+            <option>CB Bank</option>
+            <option>UAB Bank</option>
+            <option>Other Bank</option>
+          </select>
+        </label>
+        <label>
+          <span>Usage Frequency</span>
+          <select name="usage_frequency" required>
+            <option value="">Select</option>
+            <option>Daily</option>
+            <option>Weekly</option>
+            <option>Monthly</option>
+            <option>Occasionally</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="survey-section-title">
+        <p class="eyebrow">Section 2</p>
+        <h2>Service Quality Ratings</h2>
+      </div>
+      <div class="likert-guide">
+        <span>1 = Strongly Disagree</span>
+        <span>2 = Disagree</span>
+        <span>3 = Neutral</span>
+        <span>4 = Agree</span>
+        <span>5 = Strongly Agree</span>
+      </div>
+      <div class="rating-grid">
+        
+        <label class="rating-field">
+          <span>Tangibles: branch appearance and facilities</span>
+          <select name="tangibles" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+        <label class="rating-field">
+          <span>Reliability: accurate and dependable service</span>
+          <select name="reliability" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+        <label class="rating-field">
+          <span>Responsiveness: quick and helpful service</span>
+          <select name="responsiveness" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+        <label class="rating-field">
+          <span>Assurance: confidence and trust in staff</span>
+          <select name="assurance" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+        <label class="rating-field">
+          <span>Empathy: care and attention to customer needs</span>
+          <select name="empathy" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+        <label class="rating-field">
+          <span>Security: safety of transactions and information</span>
+          <select name="security" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+        <label class="rating-field">
+          <span>Digital Convenience: mobile and online banking ease</span>
+          <select name="digital_convenience" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+        <label class="rating-field">
+          <span>Overall Satisfaction with banking services</span>
+          <select name="overall_satisfaction" required>
+            <option value="">Select score</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </label>
+        
+      </div>
+
+      <label class="full-width">
+        <span>Additional Comment</span>
+        <textarea name="comment" rows="4" maxlength="300" placeholder="Write a short comment about your banking experience"></textarea>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" class="button button-primary">Submit Survey</button>
+        <a class="button button-secondary" href="dashboard.html">Go to Dashboard</a>
+      </div>
+      <p id="form-status" class="form-status"></p>
+    </form>
+
+    <aside class="side-note">
+      <h2>Method Reminder</h2>
+      <ul>
+        <li>Research Design: Quantitative</li>
+        <li>Data Collection: Questionnaire Survey</li>
+        <li>Measurement Scale: 5-point Likert Scale</li>
+        <li>Analysis: Frequency, Mean, and Comparison</li>
+      </ul>
+      <div class="note-card">
+        <strong>Best practice for your thesis</strong>
+        <p>Ask respondents to answer all rating items based on one bank they use most often. This keeps the data more consistent for analysis.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>A Web-Based Customer Satisfaction Analysis System for Banking Services</p>
+    <p>Built with HTML, CSS, JavaScript, and Python.</p>
+  </footer>
+
+  <script>
+    window.APP_LANG = "en";
+    window.APP_TEXT = {"academic_flow": "Academic Flow", "additional_comment": "Additional Comment", "age": "Age", "all": "All", "analysis_dashboard": "Analysis Dashboard", "analysis_report": "Customer Satisfaction Analysis Report", "apply_filters": "Apply Filters", "available_banks": "Available Banks", "avg_score_chartjs": "Average score out of 5 with Chart.js visualization", "bank_comparison": "Bank Comparison", "bank_distribution": "Bank Distribution", "bank_name": "Bank Name", "best_practice": "Best practice for your thesis", "brand_eyebrow": "Thesis Website", "brand_name": "Banking Satisfaction Analysis System", "comment_placeholder": "Write a short comment about your banking experience", "comparison_analysis": "Comparison Analysis", "comparison_intro": "Quick comparisons across banks, gender groups, and usage frequency.", "current_responses": "Current Responses", "current_top_factor": "Current top factor", "customer_satisfaction_analysis": "Customer Satisfaction Data Analysis", "daily": "Daily", "dashboard_auto_updates": "The dashboard updates automatically when new survey responses are submitted.", "dashboard_intro": "This dashboard summarizes responses collected through the website survey and converts them into research-ready insights.", "data_collection": "Data Collection", "discussion_statements": "Quick statements you can use in discussion", "distribution_overall": "Distribution of overall satisfaction", "empty_state_body": "Try changing the filters or collect more survey responses first.", "empty_state_title": "No data for the selected view", "enter_age": "Enter age", "enter_name": "Enter name", "export_csv": "Export CSV", "factor_means": "Factor Means", "female": "Female", "filter_dataset": "Filter the Dataset", "filter_label": "Filter", "footer_subtitle": "Built with HTML, CSS, JavaScript, and Python.", "footer_title": "A Web-Based Customer Satisfaction Analysis System for Banking Services", "form_progress": "Form Progress", "full_name_optional": "Full Name (Optional)", "gender": "Gender", "gender_comparison": "Gender Comparison", "go_to_dashboard": "Go to Dashboard", "hero_eyebrow": "Research-Driven Website", "hero_intro": "This thesis website transforms the study into a working research platform. It explains the theories, presents the methodology, collects customer responses, and displays service-quality analysis through a dashboard.", "how_supports_thesis": "How The Website Supports The Thesis", "insight": "Insight", "interpretation_snapshot": "Interpretation Snapshot", "key_takeaways": "Key Takeaways", "lang_en": "English", "lang_my": "\u1019\u103c\u1014\u103a\u1019\u102c", "latest_observations": "Latest respondent observations", "male": "Male", "measured_factors": "Measured Factors", "method_reminder": "Method Reminder", "monthly": "Monthly", "nav_about": "About", "nav_admin": "Admin", "nav_analysis": "Analysis", "nav_dashboard": "Dashboard", "nav_home": "Home", "nav_logout": "Logout", "nav_methodology": "Methodology", "nav_recommendations": "Recommendations", "nav_report": "Report", "nav_results": "Results", "nav_study": "Study", "nav_survey": "Survey", "nav_theory": "Theory", "no_data_yet": "No data yet", "occasionally": "Occasionally", "open_dashboard": "Open Dashboard", "open_pdf_report": "Open PDF Report", "open_survey": "Open Survey", "open_theory": "Open Theory", "other": "Other", "overall_mean": "Overall Mean", "print_save_pdf": "Print / Save as PDF", "printable_report": "Printable Report", "progress_required": "{completed} of {total} required fields completed", "quick_start": "Quick Start", "recent_comments": "Recent Comments", "report_intro": "This page is optimized for print-to-PDF export. Use your browser print dialog to save the report as PDF.", "research_architecture": "Research Architecture", "research_path": "Research Path", "research_product": "Research Meets Product Design", "research_section": "Research Section", "reset": "Reset", "respondent_count_by_bank": "Respondent count by bank", "respondent_profile": "Respondent Profile", "review_patterns": "Review patterns by respondent group", "satisfaction_levels": "Satisfaction Levels", "section_1": "Section 1", "section_2": "Section 2", "section_summary": "Section Summary", "select": "Select", "selected_comments": "Selected Respondent Notes", "service_factor_means": "Service Factor Means", "service_quality_ratings": "Service Quality Ratings", "service_quality_summary": "Service Quality Summary", "site_title": "Banking Satisfaction Research", "start_survey": "Start Survey", "study_focus": "Study Focus", "submit_success": "Survey submitted successfully.", "submit_survey": "Submit Survey", "submitting_survey": "Submitting survey...", "suggested_workflow": "Suggested Workflow", "summary": "Summary", "survey_form_intro": "Use this form to collect quantitative responses from bank customers. All rating fields use a 1 to 5 scale.", "survey_form_title": "Customer Satisfaction Survey Form", "survey_snapshot": "Survey Snapshot", "system_outputs": "System Outputs", "takeaway": "Takeaway", "three_moves": "Use The Website In Three Moves", "top_factor": "Top Factor", "total_responses": "Total Responses", "usage_comparison": "Usage Comparison", "usage_frequency": "Usage Frequency", "validation_age_number": "Age must be a valid number.", "validation_age_range": "Age must be between 15 and 100.", "validation_comment_length": "Comment should be 300 characters or fewer.", "validation_fix_form": "Please correct the highlighted fields before submitting.", "validation_required": "{field} is required.", "validation_score_number": "{field} must be a number.", "validation_score_range": "{field} must be between 1 and 5.", "view_analysis": "View Analysis", "weakest_factor": "Weakest Factor", "website_modules": "Website Modules", "weekly": "Weekly", "what_section_adds": "What This Section Adds To The Thesis", "what_system_includes": "What This System Includes"};
+    window.APP_STATIC = true;
+    window.APP_BASE_PATH = "./";
+  </script>
+  <script src="static/js/main.js"></script>
+  
+<script src="static/js/survey.js"></script>
+
+</body>
+</html>

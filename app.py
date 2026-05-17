@@ -571,6 +571,8 @@ def inject_ui_helpers():
         "url_lang": url_lang,
         "current_lang": get_lang(),
         "ui_text": UI_TEXT.get(get_lang(), UI_TEXT["en"]),
+        "app_static": False,
+        "app_base_path": "/",
     }
 
 

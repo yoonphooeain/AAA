@@ -1,0 +1,18 @@
+<svg width="920" height="520" viewBox="0 0 920 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="920" height="520" rx="40" fill="#F8F3EA"/>
+  <rect x="94" y="96" width="732" height="332" rx="30" fill="#FFFDF8"/>
+  <rect x="128" y="132" width="248" height="248" rx="24" fill="#1D3557"/>
+  <rect x="160" y="164" width="94" height="16" rx="8" fill="#C89A4B"/>
+  <rect x="160" y="196" width="180" height="12" rx="6" fill="#E1EAF4" fill-opacity="0.72"/>
+  <rect x="160" y="228" width="184" height="104" rx="18" fill="#28446D"/>
+  <rect x="192" y="260" width="120" height="16" rx="8" fill="#FDFBF7"/>
+  <rect x="192" y="290" width="102" height="12" rx="6" fill="#D8E5F7" fill-opacity="0.74"/>
+  <rect x="410" y="132" width="384" height="110" rx="24" fill="#EEF4FB"/>
+  <rect x="444" y="166" width="106" height="16" rx="8" fill="#315F96"/>
+  <rect x="444" y="194" width="236" height="12" rx="6" fill="#647084" fill-opacity="0.42"/>
+  <rect x="410" y="268" width="384" height="112" rx="24" fill="#FFFFFF"/>
+  <path d="M448 342L504 304L554 324L610 274L660 290L720 248" stroke="#315F96" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="504" cy="304" r="9" fill="#C89A4B"/>
+  <circle cx="610" cy="274" r="9" fill="#C89A4B"/>
+  <circle cx="720" cy="248" r="9" fill="#C89A4B"/>
+</svg>

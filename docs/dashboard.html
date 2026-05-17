@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banking Satisfaction Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body data-lang="en" data-route="dashboard">
+  <header class="site-header">
+    <div class="brand-block">
+      <p class="eyebrow">Thesis Website</p>
+      <a class="brand" href="index.html">
+        <span class="brand-mark"></span>
+        <span>Banking Satisfaction Analysis System</span>
+      </a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-actions">
+      <nav class="site-nav">
+        <a href="index.html" class="">Home</a>
+
+        <div class="nav-dropdown ">
+          <button type="button" class="nav-trigger " aria-expanded="false">
+            Study
+          </button>
+          <div class="nav-menu">
+            <a href="about.html" class="nav-subitem ">About</a>
+            <a href="theory.html" class="nav-subitem ">Theory</a>
+            <a href="methodology.html" class="nav-subitem ">Methodology</a>
+          </div>
+        </div>
+
+        <a href="survey.html" class="">Survey</a>
+
+        <div class="nav-dropdown is-open">
+          <button type="button" class="nav-trigger is-active" aria-expanded="true">
+            Analysis
+          </button>
+          <div class="nav-menu">
+            <a href="dashboard.html" class="nav-subitem is-current">Dashboard</a>
+            <a href="results.html" class="nav-subitem ">Results</a>
+            <a href="recommendations.html" class="nav-subitem ">Recommendations</a>
+          </div>
+        </div>
+
+        <a href="report.html" class="">Report</a>
+        </nav>
+      </div>
+    </header>
+
+  <main>
+    
+<section class="page-hero compact">
+  <p class="eyebrow">Analysis Dashboard</p>
+  <h1>Customer Satisfaction Data Analysis</h1>
+  <p class="hero-text narrow">This dashboard summarizes responses collected through the website survey and converts them into research-ready insights.</p>
+</section>
+
+<section class="section-block">
+  <div class="detail-hero-card">
+    <div class="detail-summary">
+      <div>
+        <p class="eyebrow">Analysis Dashboard</p>
+        <h2>A dashboard-style interpretation space for filtered data review, chart comparison, and thesis discussion support.</h2>
+      </div>
+      <figure class="detail-visual">
+        <img src="https://images.pexels.com/photos/7947999/pexels-photo-7947999.jpeg?cs=srgb&dl=pexels-rdne-7947999.jpg&fm=jpg" alt="Dashboard insights photo" loading="lazy" referrerpolicy="no-referrer">
+        <figcaption>This realistic analytics scene supports the thesis analysis stage where survey data becomes charts, summaries, and supervisor-ready findings.</figcaption>
+      </figure>
+    </div>
+    <div class="detail-metrics">
+      <article class="micro-stat">
+        <span class="stat-icon">◌ Live filters</span>
+        <strong>Bank / Gender / Usage</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">◆ Chart review</span>
+        <strong>Chart.js visuals</strong>
+      </article>
+      <article class="micro-stat">
+        <span class="stat-icon">△ Export tools</span>
+        <strong>CSV + PDF report</strong>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div id="dashboard-root" class="dashboard-root">
+    <section class="dashboard-panel filter-panel">
+      <div class="panel-heading">
+        <h2>Filter the Dataset</h2>
+        <p>Review patterns by respondent group</p>
+      </div>
+      <div class="filter-grid">
+        
+        <label>
+          <span>Bank</span>
+          <select data-filter="bank_name" class="dashboard-filter">
+            <option value="">All Bank</option>
+          </select>
+        </label>
+        
+        <label>
+          <span>Gender</span>
+          <select data-filter="gender" class="dashboard-filter">
+            <option value="">All Gender</option>
+          </select>
+        </label>
+        
+        <label>
+          <span>Usage Frequency</span>
+          <select data-filter="usage_frequency" class="dashboard-filter">
+            <option value="">All Usage Frequency</option>
+          </select>
+        </label>
+        
+      </div>
+      <div class="filter-actions">
+        <button id="apply-filters" class="button button-primary" type="button">Apply Filters</button>
+        <button id="reset-filters" class="button button-secondary" type="button">Reset</button>
+      </div>
+      <div class="export-actions">
+        <a id="csv-export" class="button button-secondary" href="data/banking_satisfaction_all.csv">Export CSV</a>
+        <a id="pdf-export" class="button button-secondary" href="report.html" target="_blank" rel="noopener">Open PDF Report</a>
+      </div>
+    </section>
+
+    <div class="summary-grid" id="summary-grid"></div>
+
+    <section class="dashboard-panel insight-panel">
+      <div class="panel-heading">
+        <h2>Interpretation Snapshot</h2>
+        <p>Quick statements you can use in discussion</p>
+      </div>
+      <div id="insight-list" class="insight-list"></div>
+    </section>
+
+    <section class="dashboard-panel">
+      <div class="panel-heading">
+        <h2>Comparison Analysis</h2>
+        <p>Quick comparisons across banks, gender groups, and usage frequency.</p>
+      </div>
+      <div class="comparison-grid">
+        <article class="comparison-card">
+          <h3>Bank Comparison</h3>
+          <div id="bank-comparison" class="bar-list small"></div>
+        </article>
+        <article class="comparison-card">
+          <h3>Gender Comparison</h3>
+          <div id="gender-comparison" class="bar-list small"></div>
+        </article>
+        <article class="comparison-card">
+          <h3>Usage Comparison</h3>
+          <div id="usage-comparison" class="bar-list small"></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="dashboard-panels">
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>Service Factor Means</h2>
+          <p>Average score out of 5 with Chart.js visualization</p>
+        </div>
+        <div class="chart-shell tall-chart">
+          <canvas id="factor-chart"></canvas>
+        </div>
+        <div id="factor-bars" class="bar-list"></div>
+      </section>
+
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>Bank Distribution</h2>
+          <p>Respondent count by bank</p>
+        </div>
+        <div class="chart-shell">
+          <canvas id="bank-chart"></canvas>
+        </div>
+        <div id="bank-list" class="bar-list small"></div>
+      </section>
+    </div>
+
+    <div class="dashboard-panels">
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>Satisfaction Levels</h2>
+          <p>Distribution of overall satisfaction</p>
+        </div>
+        <div class="chart-shell doughnut-shell">
+          <canvas id="level-chart"></canvas>
+        </div>
+        <div id="level-list" class="pill-list"></div>
+      </section>
+
+      <section class="dashboard-panel">
+        <div class="panel-heading">
+          <h2>Recent Comments</h2>
+          <p>Latest respondent observations</p>
+        </div>
+        <div id="comment-list" class="comment-list"></div>
+      </section>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>A Web-Based Customer Satisfaction Analysis System for Banking Services</p>
+    <p>Built with HTML, CSS, JavaScript, and Python.</p>
+  </footer>
+
+  <script>
+    window.APP_LANG = "en";
+    window.APP_TEXT = {"academic_flow": "Academic Flow", "additional_comment": "Additional Comment", "age": "Age", "all": "All", "analysis_dashboard": "Analysis Dashboard", "analysis_report": "Customer Satisfaction Analysis Report", "apply_filters": "Apply Filters", "available_banks": "Available Banks", "avg_score_chartjs": "Average score out of 5 with Chart.js visualization", "bank_comparison": "Bank Comparison", "bank_distribution": "Bank Distribution", "bank_name": "Bank Name", "best_practice": "Best practice for your thesis", "brand_eyebrow": "Thesis Website", "brand_name": "Banking Satisfaction Analysis System", "comment_placeholder": "Write a short comment about your banking experience", "comparison_analysis": "Comparison Analysis", "comparison_intro": "Quick comparisons across banks, gender groups, and usage frequency.", "current_responses": "Current Responses", "current_top_factor": "Current top factor", "customer_satisfaction_analysis": "Customer Satisfaction Data Analysis", "daily": "Daily", "dashboard_auto_updates": "The dashboard updates automatically when new survey responses are submitted.", "dashboard_intro": "This dashboard summarizes responses collected through the website survey and converts them into research-ready insights.", "data_collection": "Data Collection", "discussion_statements": "Quick statements you can use in discussion", "distribution_overall": "Distribution of overall satisfaction", "empty_state_body": "Try changing the filters or collect more survey responses first.", "empty_state_title": "No data for the selected view", "enter_age": "Enter age", "enter_name": "Enter name", "export_csv": "Export CSV", "factor_means": "Factor Means", "female": "Female", "filter_dataset": "Filter the Dataset", "filter_label": "Filter", "footer_subtitle": "Built with HTML, CSS, JavaScript, and Python.", "footer_title": "A Web-Based Customer Satisfaction Analysis System for Banking Services", "form_progress": "Form Progress", "full_name_optional": "Full Name (Optional)", "gender": "Gender", "gender_comparison": "Gender Comparison", "go_to_dashboard": "Go to Dashboard", "hero_eyebrow": "Research-Driven Website", "hero_intro": "This thesis website transforms the study into a working research platform. It explains the theories, presents the methodology, collects customer responses, and displays service-quality analysis through a dashboard.", "how_supports_thesis": "How The Website Supports The Thesis", "insight": "Insight", "interpretation_snapshot": "Interpretation Snapshot", "key_takeaways": "Key Takeaways", "lang_en": "English", "lang_my": "\u1019\u103c\u1014\u103a\u1019\u102c", "latest_observations": "Latest respondent observations", "male": "Male", "measured_factors": "Measured Factors", "method_reminder": "Method Reminder", "monthly": "Monthly", "nav_about": "About", "nav_admin": "Admin", "nav_analysis": "Analysis", "nav_dashboard": "Dashboard", "nav_home": "Home", "nav_logout": "Logout", "nav_methodology": "Methodology", "nav_recommendations": "Recommendations", "nav_report": "Report", "nav_results": "Results", "nav_study": "Study", "nav_survey": "Survey", "nav_theory": "Theory", "no_data_yet": "No data yet", "occasionally": "Occasionally", "open_dashboard": "Open Dashboard", "open_pdf_report": "Open PDF Report", "open_survey": "Open Survey", "open_theory": "Open Theory", "other": "Other", "overall_mean": "Overall Mean", "print_save_pdf": "Print / Save as PDF", "printable_report": "Printable Report", "progress_required": "{completed} of {total} required fields completed", "quick_start": "Quick Start", "recent_comments": "Recent Comments", "report_intro": "This page is optimized for print-to-PDF export. Use your browser print dialog to save the report as PDF.", "research_architecture": "Research Architecture", "research_path": "Research Path", "research_product": "Research Meets Product Design", "research_section": "Research Section", "reset": "Reset", "respondent_count_by_bank": "Respondent count by bank", "respondent_profile": "Respondent Profile", "review_patterns": "Review patterns by respondent group", "satisfaction_levels": "Satisfaction Levels", "section_1": "Section 1", "section_2": "Section 2", "section_summary": "Section Summary", "select": "Select", "selected_comments": "Selected Respondent Notes", "service_factor_means": "Service Factor Means", "service_quality_ratings": "Service Quality Ratings", "service_quality_summary": "Service Quality Summary", "site_title": "Banking Satisfaction Research", "start_survey": "Start Survey", "study_focus": "Study Focus", "submit_success": "Survey submitted successfully.", "submit_survey": "Submit Survey", "submitting_survey": "Submitting survey...", "suggested_workflow": "Suggested Workflow", "summary": "Summary", "survey_form_intro": "Use this form to collect quantitative responses from bank customers. All rating fields use a 1 to 5 scale.", "survey_form_title": "Customer Satisfaction Survey Form", "survey_snapshot": "Survey Snapshot", "system_outputs": "System Outputs", "takeaway": "Takeaway", "three_moves": "Use The Website In Three Moves", "top_factor": "Top Factor", "total_responses": "Total Responses", "usage_comparison": "Usage Comparison", "usage_frequency": "Usage Frequency", "validation_age_number": "Age must be a valid number.", "validation_age_range": "Age must be between 15 and 100.", "validation_comment_length": "Comment should be 300 characters or fewer.", "validation_fix_form": "Please correct the highlighted fields before submitting.", "validation_required": "{field} is required.", "validation_score_number": "{field} must be a number.", "validation_score_range": "{field} must be between 1 and 5.", "view_analysis": "View Analysis", "weakest_factor": "Weakest Factor", "website_modules": "Website Modules", "weekly": "Weekly", "what_section_adds": "What This Section Adds To The Thesis", "what_system_includes": "What This System Includes"};
+    window.APP_STATIC = true;
+    window.APP_BASE_PATH = "./";
+  </script>
+  <script src="static/js/main.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="static/js/dashboard.js"></script>
+
+</body>
+</html>
